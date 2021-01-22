@@ -3,7 +3,7 @@ Hades invests a lot of time figuring out how to distribute Machine Learning Mode
 ![Hades](https://github.com/the-muses-ltd/Hades-Machine-Learning-Lambda-Function-Container/blob/main/Readme%20Assets/jelly.gif?raw=true)
 
 
-## How to use this custom container setup:
+## How to use this custom container to run your ML serving on the cloud with AWS Lambda:
 To get started, clone the repo and `cd` into the `hades_ml_lambda` folder. Now run the following commands in your terminal:
 1. Build the image using Docker.
 ```
@@ -26,9 +26,8 @@ If you're still using our saved model and the unchanged test script you should g
 
 
 ## How to use your own saved models:
-We used a simple pretrained model that can be described as follows in keras:
+We used a simple CNN pretrained model on the standard MNIST dataset that can be described as follows in keras:
 
-# Create the model
 ```python
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
@@ -39,13 +38,13 @@ model.add(Dense(256, activation='relu'))
 model.add(Dense(no_classes, activation='softmax'))
 ```
 
-To use your own, all you need to do is swap out your saved model with the one saved in the app folder and you're good to go, it really is that easy! 
+To use your own model, all you need to do is swap out your saved model with the one saved in the app folder and you're good to go, it really is that easy! 
 
 ## How does this work:
-Since the announcement in December 2020 that AWS Lambda would support custom images, our first idea was to figure out how . From a high level, this is how it works. 
+Since the announcement in December 2020 that AWS Lambda would support custom images, our first idea was to figure out how to run machine learning workloads on AWS Lambda. From a high level, this is how it works. 
 
 ![Docker](https://github.com/the-muses-ltd/Hades-Machine-Learning-Lambda-Function-Container/blob/main/Readme%20Assets/6846390_preview.png?raw=true)
-First, we package up our image using Docker with all the necessary dependencies to load and server TensorFlow models to enable you to run your inference on AWS Lambda.
+First, we package up our image using Docker with all the necessary dependencies to load and serve TensorFlow models to enable you to run your inference on AWS Lambda.
 
 ![AWS Lambda](https://github.com/the-muses-ltd/Hades-Machine-Learning-Lambda-Function-Container/blob/main/Readme%20Assets/1_GwOUMMMXKde8kr1i2kDByw.png?raw=true)
 That's pretty much it! Next, we upload our pre-built image to ECR to run it on AWS Lambda and start making predictions on the cloud. Follow the instructions here on how to get your pre-built Lambda Image on the cloud:
