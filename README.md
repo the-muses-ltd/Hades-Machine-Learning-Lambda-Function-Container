@@ -59,3 +59,6 @@ To use this contianer you'll need:
 1. Docker Desktop Installed https://www.docker.com/products/docker-desktop
 2. The Docker CLI installed on your local machine.
 3. Your model will need to be trained with Tensorflow 2 or above and ideally saved with Keras.
+
+## Contributions
+All of our work is open-source and contributions are welcome so feel free to submit pull requests and post issues on our GitHub organisation!
