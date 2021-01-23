@@ -7,11 +7,11 @@ Hades invests a lot of time figuring out how to distribute Machine Learning Mode
 To get started, clone the repo and `cd` into the `hades_ml_lambda` folder. Now run the following commands in your terminal:
 1. Build the image using Docker.
 ```
-docker image build -t lambda_env/hades-lambda:latest .
+docker image build -t hades/ml-lambda:latest .
 ``` 
 2. Run the docker container using the image you just built.
 ```
-docker run -p 9000:8080 lambda_env/hades-lambda:latest
+docker run -p 9000:8080 hades/ml-lambda:latest
 ```
 4. Change your working directory to the `tester folder`
 
